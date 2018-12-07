@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    include: kafka
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      keyDeserializer: org.apache.kafka.common.serialization.StringDeserializer
+      valueDeserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enableAutoCommit: false
+      group-id: "kafka-consumer"
+      properties:
+        auto.offset.reset: earliest
+        request.timeout.ms: 20000
+        max.poll.records: 50
+        interceptor.classes: io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
+    listener:
+      ackMode: MANUAL
+      concurrency: 3

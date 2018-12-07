@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    include: kafka
+  kafka:
+    clientId: "kafka-demo-producer"
+    bootstrap-servers: localhost:9092
+    producer:
+      properties:
+        keySerializer: org.apache.kafka.common.serialization.StringSerializer
+        valueSerializer: org.apache.kafka.common.serialization.StringSerializer
+        batch-size: 64000
+        acks: all
+        properties:
+        max.in.flight.requests.per.connection: 1
+        interceptor.classes: io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor

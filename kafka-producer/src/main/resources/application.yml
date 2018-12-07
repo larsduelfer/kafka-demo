@@ -1,0 +1,15 @@
+info:
+  app:
+    name: ${spring.application.name}
+
+spring:
+  application:
+    name: Kafka Demo Producer
+  profiles:
+    include:
+      - kafka
+
+logging:
+  level:
+    ROOT: WARN
+    de.novatecgmbh.demo: info
