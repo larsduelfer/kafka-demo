@@ -21,11 +21,12 @@ public class MessageConsumer {
   @KafkaListener(topics = "${TOPIC}")
   public void consumer(ConsumerRecord<String, String> record, Acknowledgment ack) {
     LOGGER.info(
-        "Message consumed from topic {}: {} {} - Message Number: {}",
+        "Message consumed from topic {}: {} {} - Message Number: {} - Offset: {}",
         topic,
         record.key(),
         record.value(),
-        numberOfMessage++);
+        numberOfMessage++,
+        record.offset());
     ack.acknowledge();
   }
 }
