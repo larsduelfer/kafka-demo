@@ -8,7 +8,7 @@ if [[ -z $PARTITION ]]; then
 fi
 
 kafka-topics \
-    --zookeeper localhost:2181 \
+    --bootstrap-server localhost:9092 \
     --create \
     --if-not-exists \
     --topic kafka-demo-topic-infinite \
@@ -17,7 +17,7 @@ kafka-topics \
     --config retention.ms=-1
 
 kafka-topics \
-    --zookeeper localhost:2181 \
+    --bootstrap-server localhost:9092 \
     --create \
     --if-not-exists \
     --topic kafka-demo-topic-compacted \

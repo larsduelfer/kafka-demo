@@ -1,11 +1,11 @@
 #!/bin/bash
 
 kafka-topics \
-    --zookeeper localhost:2181 \
+    --bootstrap-server localhost:9092 \
     --delete \
     --topic kafka-demo-topic-infinite
 
 kafka-topics \
-    --zookeeper localhost:2181 \
+    --bootstrap-server localhost:9092 \
     --delete \
     --topic kafka-demo-topic-compacted
